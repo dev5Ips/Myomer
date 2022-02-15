@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name="com.myomer.myomer.app.App"
@@ -17,7 +22,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity
+        <!--<activity
             android:name="com.myomer.myomer.ui.activity.IntroActivity"
             android:exported="true">
             <intent-filter>
@@ -28,8 +33,77 @@
         </activity>
 
         <activity android:name="com.myomer.myomer.ui.activity.SplashActivity" />
-        <activity android:name="com.myomer.myomer.ui.activity.MainActivity" />
+        <activity android:name="com.myomer.myomer.ui.activity.MainActivity" />-->
+        <activity
+            android:name=".ui.activity.SplachScreenActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
 
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.UserFormActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.activity.WaitingScreenActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.activity.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.activity.OmerChartActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.activity.SettingsActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.activity.AboutUsActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".util.oldProjectFiles.gota.GotaActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name=".receiver.AlarmReceiver"
+            android:enabled="true" />
+        <receiver
+            android:name=".receiver.BootUpReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!--                <action android:name="android.intent.action.QUICKBOOT_POWERON" />-->
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.myomer.myomer.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>
