@@ -8,7 +8,7 @@
         tools:ignore="NewApi">
         <shape android:shape="rectangle">
             <solid android:color="@android:color/black" />
-            <corners android:radius="@dimen/dp_10" />
+            <corners android:radius="@dimen/_10sdp" />
         </shape>
     </item>
 </ripple>
