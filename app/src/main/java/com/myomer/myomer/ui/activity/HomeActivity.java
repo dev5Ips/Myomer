@@ -36,43 +36,36 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.myomer.myomer.R;
-import com.myomer.myomer.event_bus.Events;
-import com.myomer.myomer.event_bus.GlobalBus;
-import com.myomer.myomer.fragments.BlessingsFragment;
-import com.myomer.myomer.fragments.DailyFragment;
-import com.myomer.myomer.fragments.ExerciseFragment;
-import com.myomer.myomer.fragments.JournalsFragment;
-import com.myomer.myomer.fragments.VideoFragment;
-import com.myomer.myomer.fragments.WeekFragment;
-import com.myomer.myomer.helpers.SharedPreferenceHelper;
-import com.myomer.myomer.models.JournalQuestionModelNew;
-import com.myomer.myomer.models.MyOmerPeriod;
-import com.myomer.myomer.plist_parser.PListDict;
-import com.myomer.myomer.plist_parser.PListException;
-import com.myomer.myomer.plist_parser.PListParser;
-import com.myomer.myomer.realm.RealmController;
-import com.myomer.myomer.utilty.Constants;
-import com.myomer.myomer.utilty.CustomAlert;
-import com.myomer.myomer.utilty.Utilty;
-import com.myomer.myomer.utilty.gota.Gota;
-import com.myomer.myomer.utilty.gota.GotaResponse;
-
-import org.apache.commons.lang3.StringUtils;
-import org.joda.time.Days;
-import org.joda.time.LocalDate;
+import com.myomer.myomer.data.local.event_bus.Events;
+import com.myomer.myomer.data.local.event_bus.GlobalBus;
+import com.myomer.myomer.data.local.models.JournalQuestionModelNew;
+import com.myomer.myomer.data.local.models.MyOmerPeriod;
+import com.myomer.myomer.data.local.plist_parser.PListDict;
+import com.myomer.myomer.data.local.plist_parser.PListException;
+import com.myomer.myomer.data.local.plist_parser.PListParser;
+import com.myomer.myomer.ui.fragments.BlessingsFragment;
+import com.myomer.myomer.ui.fragments.DailyFragment;
+import com.myomer.myomer.ui.fragments.ExerciseFragment;
+import com.myomer.myomer.ui.fragments.JournalsFragment;
+import com.myomer.myomer.ui.fragments.VideoFragment;
+import com.myomer.myomer.ui.fragments.WeekFragment;
+import com.myomer.myomer.util.helper.SharedPreferenceHelper;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
+import com.myomer.myomer.util.oldProjectFiles.CustomAlert;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
+import com.myomer.myomer.util.oldProjectFiles.gota.Gota;
+import com.myomer.myomer.util.oldProjectFiles.gota.GotaResponse;
+import com.myomer.myomer.util.realm.RealmController;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import co.ceryle.radiorealbutton.RadioRealButton;
-import co.ceryle.radiorealbutton.RadioRealButtonGroup;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
@@ -241,10 +234,10 @@ public class HomeActivity extends AppCompatActivity implements
         // new nightfall logic +1 day
         int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         int minutes = Calendar.getInstance().get(Calendar.MINUTE);
-        int nightFallHours =SharedPreferenceHelper.getSharedPreferenceInt(this,"NightfallHour",0);
-        int nightFallMinutes = SharedPreferenceHelper.getSharedPreferenceInt(this,"NightfallMin",0);
+        int nightFallHours = SharedPreferenceHelper.getSharedPreferenceInt(this, "NightfallHour", 0);
+        int nightFallMinutes = SharedPreferenceHelper.getSharedPreferenceInt(this, "NightfallMin", 0);
 
-        if(hour>=nightFallHours && minutes>=nightFallMinutes){
+        if (hour >= nightFallHours && minutes >= nightFallMinutes) {
             Constants.MY_OMER_DAYS_COUNT = Constants.MY_OMER_DAYS_COUNT + 1;
         }
 
@@ -516,7 +509,6 @@ public class HomeActivity extends AppCompatActivity implements
         });
 
 
-
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -550,7 +542,12 @@ public class HomeActivity extends AppCompatActivity implements
 
             stream = assetManager.open("days/day" + dayCount + ".plist");
 
-            PListDict dict = PListParser.parse(stream);
+            PListDict dict = null;
+            try {
+                dict = PListParser.parse(stream);
+            } catch (PListException e) {
+                e.printStackTrace();
+            }
 
             int day = dict.getInt("day");
             if (isWeektab) {
@@ -794,9 +791,9 @@ public class HomeActivity extends AppCompatActivity implements
 
 
         if (id == R.id.omer_chart) {
-            startActivity(new Intent(HomeActivity.this, com.myomer.myomer.activities.OmerChartActivity.class));
+            startActivity(new Intent(HomeActivity.this, OmerChartActivity.class));
         } else if (id == R.id.settings) {
-            startActivity(new Intent(HomeActivity.this, com.myomer.myomer.activities.SettingsActivity.class));
+            startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
         } else if (id == R.id.goToBook) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.BOOK_URL)));
         } else if (id == R.id.donate) {
@@ -808,7 +805,7 @@ public class HomeActivity extends AppCompatActivity implements
             testIntent.setData(data);
             startActivity(testIntent);
         } else if (id == R.id.whatIsOmer) {
-            startActivity(new Intent(HomeActivity.this, com.myomer.myomer.activities.AboutUsActivity.class));
+            startActivity(new Intent(HomeActivity.this, AboutUsActivity.class));
         } else if (id == R.id.nav_share) {
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
@@ -820,11 +817,11 @@ public class HomeActivity extends AppCompatActivity implements
             sharingIntent.putExtra(Intent.EXTRA_TEXT, text);
             startActivity(Intent.createChooser(sharingIntent, "Share"));
         } else if (id == R.id.exportjournals) {
-            if(drawer!=null) {
+            if (drawer != null) {
                 drawer.closeDrawer(GravityCompat.START);
             }
             new Gota.Builder(this)
-                    .withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    .withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     .requestId(101)
                     .setListener(HomeActivity.this)
                     .check();
@@ -864,73 +861,29 @@ public class HomeActivity extends AppCompatActivity implements
         if (enabled) {
             action = "";
             weekCount = week;
-
-            new CustomAlert().showWeeklyAlert(HomeActivity.this,weekCount);
-           /* if (weekCount == 1) {
-                count = 1;
-            } else if (weekCount == 2) {
-                count = 8;
-            } else if (weekCount == 3) {
-                count = 15;
-            } else if (weekCount == 4) {
-                count = 22;
-            } else if (weekCount == 5) {
-                count = 29;
-            } else if (weekCount == 6) {
-                count = 36;
-            } else if (weekCount == 7) {
-                count = 43;
-            }
-
-            refreshArrows();
-            populateViews(count);
-
-            if (currenttab != 1) {
-                buttonGroup.setPosition(1, true);
-                buttonGroup.setClickable(false);
-                isWeektab = true;
-                currenttab = 1;
-                weekFragment = new WeekFragment();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Utilty.replaceFragment(HomeActivity.this, weekFragment, R.id.frame_container);
-                        GlobalBus.getBus().postSticky(new Events.DayChangeEvent(weekCount));
-                    }
-                }, 500);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        buttonGroup.setClickable(true);
-                    }
-                }, 600);
-            } else {
-                weekFragment.movetoNoAnimation(weekCount);
-            }*/
-
-
+            new CustomAlert().showWeeklyAlert(HomeActivity.this, weekCount);
         }
     }
 
     @Override
     public void onRequestBack(int requestId, @NonNull GotaResponse gotaResponse) {
-        if(requestId==101 && gotaResponse.isAllGranted()){
+        if (requestId == 101 && gotaResponse.isAllGranted()) {
             try {
-                File root= new File(Environment.getExternalStorageDirectory()+"/myOmer");
-                if(!root.exists()){
+                File root = new File(Environment.getExternalStorageDirectory() + "/myOmer");
+                if (!root.exists()) {
                     root.mkdir();
                 }
                 RealmResults<JournalQuestionModelNew> alljournals = RealmController.with((Activity) HomeActivity.this).getAllFilledJournals();
                 alljournals = alljournals.sort("id", Sort.ASCENDING);
-                String data="";
-                for (int i = 0; i <alljournals.size() ; i++) {
-                    if(StringUtils.isNotEmpty(alljournals.get(i).getAnswer())){
-                        data=data+"Day: "+alljournals.get(i).getId()+"\nQuestion: "+alljournals.get(i).getQuestion()+"\nAnswer: "+ alljournals.get(i).getAnswer()+"\n\n"/*Answered on: "+alljournals.get(i).getDate()+", "+alljournals.get(i).getTime()*/;
+                String data = "";
+                for (int i = 0; i < alljournals.size(); i++) {
+                    if (StringUtils.isNotEmpty(alljournals.get(i).getAnswer())) {
+                        data = data + "Day: " + alljournals.get(i).getId() + "\nQuestion: " + alljournals.get(i).getQuestion() + "\nAnswer: " + alljournals.get(i).getAnswer() + "\n\n"/*Answered on: "+alljournals.get(i).getDate()+", "+alljournals.get(i).getTime()*/;
                     }
                 }
 
                 String yearInString = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
-                File exportfile=new File(root.getAbsolutePath()+ "/myomer_journals_"+yearInString+".txt");
+                File exportfile = new File(root.getAbsolutePath() + "/myomer_journals_" + yearInString + ".txt");
                 FileOutputStream f = new FileOutputStream(exportfile);
                 PrintWriter pw = new PrintWriter(f);
                 pw.println(data);
@@ -938,7 +891,7 @@ public class HomeActivity extends AppCompatActivity implements
                 pw.close();
                 f.close();
 
-                Toast.makeText(HomeActivity.this, "Export Successful!\n\n"+exportfile.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, "Export Successful!\n\n" + exportfile.getAbsolutePath(), Toast.LENGTH_SHORT).show();
 
                 Uri uri = FileProvider.getUriForFile(this, "com.myomer.myomer.fileprovider", exportfile);
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
