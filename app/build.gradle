@@ -103,4 +103,21 @@ dependencies {
     //Event bus
     implementation 'org.greenrobot:eventbus:3.3.1'
 
+    //Old Project lib (need to remove after convert the code)
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.github.patgdut:RadioRealButton:v2.1.2'
+    implementation 'org.greenrobot:eventbus:3.3.1'
+    implementation 'me.relex:circleindicator:1.2.2@aar'
+    implementation 'com.github.moraisigor:slidingdrawer:1.6.7'
+    implementation 'com.github.aakira:expandable-layout:1.4.2@aar'
+    implementation 'joda-time:joda-time:2.10'
+    implementation 'com.luckycatlabs:SunriseSunsetCalculator:1.2'
+    implementation 'com.github.ankitdubey021:GPSTracker:1.1'
+
+
 }

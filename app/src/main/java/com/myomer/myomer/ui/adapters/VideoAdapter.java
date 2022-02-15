@@ -19,12 +19,12 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.myomer.myomer.R;
-import com.myomer.myomer.fragments.VideoFragment;
-import com.myomer.myomer.plist_parser.PListDict;
-import com.myomer.myomer.plist_parser.PListException;
-import com.myomer.myomer.plist_parser.PListParser;
-import com.myomer.myomer.utilty.Constants;
-import com.myomer.myomer.utilty.Utilty;
+import com.myomer.myomer.data.local.plist_parser.PListDict;
+import com.myomer.myomer.data.local.plist_parser.PListException;
+import com.myomer.myomer.data.local.plist_parser.PListParser;
+import com.myomer.myomer.ui.fragments.VideoFragment;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
 
 import java.io.IOException;
 import java.io.InputStream;

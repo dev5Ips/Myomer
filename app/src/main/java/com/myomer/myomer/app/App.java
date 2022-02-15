@@ -13,15 +13,15 @@ import androidx.multidex.MultiDex;
 import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
 import com.luckycatlabs.sunrisesunset.dto.Location;
 import com.myomer.myomer.background.AlarmReceiver;
-import com.myomer.myomer.helpers.SharedPreferenceHelper;
 import com.myomer.myomer.models.MyOmerPeriod;
 import com.myomer.myomer.plist_parser.PListArray;
 import com.myomer.myomer.plist_parser.PListDict;
 import com.myomer.myomer.plist_parser.PListException;
 import com.myomer.myomer.plist_parser.PListParser;
-import com.myomer.myomer.realm.RealmController;
+import com.myomer.myomer.util.helper.SharedPreferenceHelper;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
+import com.myomer.myomer.util.realm.RealmController;
 import com.myomer.myomer.utilty.Constants;
-import com.myomer.myomer.utilty.Utilty;
 
 import org.ankit.gpslibrary.MyTracker;
 

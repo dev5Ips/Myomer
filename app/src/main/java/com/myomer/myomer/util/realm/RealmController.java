@@ -9,10 +9,10 @@ import android.app.Application;
 
 import androidx.fragment.app.Fragment;
 
-import com.myomer.myomer.helpers.SharedPreferenceHelper;
-import com.myomer.myomer.models.JournalQuestionModelNew;
-import com.myomer.myomer.models.MyOmerPeriod;
-import com.myomer.myomer.models.RecordBlessing;
+import com.myomer.myomer.data.local.models.JournalQuestionModelNew;
+import com.myomer.myomer.data.local.models.MyOmerPeriod;
+import com.myomer.myomer.data.local.models.RecordBlessing;
+import com.myomer.myomer.util.helper.SharedPreferenceHelper;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;

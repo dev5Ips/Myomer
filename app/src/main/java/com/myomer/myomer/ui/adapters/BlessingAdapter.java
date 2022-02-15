@@ -28,15 +28,15 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.myomer.myomer.R;
-import com.myomer.myomer.activities.HomeActivity;
-import com.myomer.myomer.fragments.BlessingsFragment;
-import com.myomer.myomer.helpers.SharedPreferenceHelper;
-import com.myomer.myomer.models.RecordBlessing;
-import com.myomer.myomer.plist_parser.PListDict;
-import com.myomer.myomer.plist_parser.PListParser;
-import com.myomer.myomer.realm.RealmController;
-import com.myomer.myomer.utilty.Constants;
-import com.myomer.myomer.utilty.Utilty;
+import com.myomer.myomer.data.local.models.RecordBlessing;
+import com.myomer.myomer.data.local.plist_parser.PListDict;
+import com.myomer.myomer.data.local.plist_parser.PListParser;
+import com.myomer.myomer.ui.activity.HomeActivity;
+import com.myomer.myomer.ui.fragments.BlessingsFragment;
+import com.myomer.myomer.util.helper.SharedPreferenceHelper;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
+import com.myomer.myomer.util.realm.RealmController;
 
 import java.io.InputStream;
 import java.util.Date;

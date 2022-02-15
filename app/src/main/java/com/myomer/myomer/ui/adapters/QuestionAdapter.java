@@ -19,13 +19,13 @@ import android.widget.TextView;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.myomer.myomer.R;
-import com.myomer.myomer.models.JournalQuestionModelNew;
-import com.myomer.myomer.plist_parser.PListArray;
-import com.myomer.myomer.plist_parser.PListDict;
-import com.myomer.myomer.plist_parser.PListException;
-import com.myomer.myomer.plist_parser.PListParser;
-import com.myomer.myomer.realm.RealmController;
-import com.myomer.myomer.utilty.Utilty;
+import com.myomer.myomer.data.local.models.JournalQuestionModelNew;
+import com.myomer.myomer.data.local.plist_parser.PListArray;
+import com.myomer.myomer.data.local.plist_parser.PListDict;
+import com.myomer.myomer.data.local.plist_parser.PListException;
+import com.myomer.myomer.data.local.plist_parser.PListParser;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
+import com.myomer.myomer.util.realm.RealmController;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
