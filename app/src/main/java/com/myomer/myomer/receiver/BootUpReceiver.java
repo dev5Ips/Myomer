@@ -10,11 +10,11 @@ import android.util.Log;
 
 import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
 import com.luckycatlabs.sunrisesunset.dto.Location;
-import com.myomer.myomer.plist_parser.PListArray;
-import com.myomer.myomer.plist_parser.PListDict;
-import com.myomer.myomer.plist_parser.PListException;
-import com.myomer.myomer.plist_parser.PListParser;
-import com.myomer.myomer.utilty.Utilty;
+import com.myomer.myomer.data.local.plist_parser.PListArray;
+import com.myomer.myomer.data.local.plist_parser.PListDict;
+import com.myomer.myomer.data.local.plist_parser.PListException;
+import com.myomer.myomer.data.local.plist_parser.PListParser;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
 
 import org.ankit.gpslibrary.MyTracker;
 

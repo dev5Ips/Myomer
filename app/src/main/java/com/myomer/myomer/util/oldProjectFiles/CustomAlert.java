@@ -15,9 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.myomer.myomer.R;
-import com.myomer.myomer.plist_parser.PListDict;
-import com.myomer.myomer.plist_parser.PListException;
-import com.myomer.myomer.plist_parser.PListParser;
+import com.myomer.myomer.data.local.plist_parser.PListDict;
+import com.myomer.myomer.data.local.plist_parser.PListException;
+import com.myomer.myomer.data.local.plist_parser.PListParser;
 
 import java.io.IOException;
 import java.io.InputStream;

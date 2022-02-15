@@ -4,7 +4,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,12 +18,12 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.JsonElement;
 import com.myomer.myomer.R;
-import com.myomer.myomer.background.AlarmReceiver;
-import com.myomer.myomer.helpers.SharedPreferenceHelper;
-import com.myomer.myomer.utilty.Constants;
-import com.myomer.myomer.utilty.Utilty;
-import com.myomer.myomer.webservice.RxApiRequestHandler;
-import com.myomer.myomer.webservice.ServiceCallBack;
+import com.myomer.myomer.receiver.AlarmReceiver;
+import com.myomer.myomer.util.helper.SharedPreferenceHelper;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
+import com.myomer.myomer.util.oldProjectFiles.webservice.RxApiRequestHandler;
+import com.myomer.myomer.util.oldProjectFiles.webservice.ServiceCallBack;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -75,8 +74,8 @@ public class UserFormActivity extends AppCompatActivity implements ServiceCallBa
 
         welcomeNotification();
 
-        Typeface type1 = Typeface.createFromAsset(getAssets(), "fonts/Biko_Bold.otf");
-        btnContinue.setTypeface(type1);
+//        Typeface type1 = Typeface.createFromAsset(getAssets(), "fonts/Biko_Bold.otf");
+//        btnContinue.setTypeface(type1);
 
     }
 

@@ -13,13 +13,13 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.myomer.myomer.R;
-import com.myomer.myomer.adapters.QuestionAdapter;
-import com.myomer.myomer.event_bus.Events;
-import com.myomer.myomer.event_bus.GlobalBus;
-import com.myomer.myomer.plist_parser.PListArray;
-import com.myomer.myomer.plist_parser.PListDict;
-import com.myomer.myomer.plist_parser.PListException;
-import com.myomer.myomer.plist_parser.PListParser;
+import com.myomer.myomer.data.local.event_bus.Events;
+import com.myomer.myomer.data.local.event_bus.GlobalBus;
+import com.myomer.myomer.data.local.plist_parser.PListArray;
+import com.myomer.myomer.data.local.plist_parser.PListDict;
+import com.myomer.myomer.data.local.plist_parser.PListException;
+import com.myomer.myomer.data.local.plist_parser.PListParser;
+import com.myomer.myomer.ui.adapters.QuestionAdapter;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
