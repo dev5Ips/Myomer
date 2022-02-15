@@ -57,15 +57,22 @@ import com.myomer.myomer.util.oldProjectFiles.gota.Gota;
 import com.myomer.myomer.util.oldProjectFiles.gota.GotaResponse;
 import com.myomer.myomer.util.realm.RealmController;
 
+import org.apache.commons.lang3.StringUtils;
+import org.joda.time.Days;
+import org.joda.time.LocalDate;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import co.ceryle.radiorealbutton.RadioRealButton;
+import co.ceryle.radiorealbutton.RadioRealButtonGroup;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
@@ -220,7 +227,8 @@ public class HomeActivity extends AppCompatActivity implements
         // Old logic start here
         Date startDateOfOmer = myOmerPeriod.getStartDate();
         Date currentDate = new Date();
-        Constants.MY_OMER_DAYS_COUNT = Days.daysBetween(new LocalDate(startDateOfOmer), new LocalDate(currentDate)).getDays();
+        Constants.MY_OMER_DAYS_COUNT = Days.daysBetween(new LocalDate(startDateOfOmer),
+                new LocalDate(currentDate)).getDays();
         // old logic ends here
 
         // for night fall

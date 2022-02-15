@@ -32,8 +32,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.textfield.TextInputLayout;
 import com.myomer.myomer.R;
-import com.myomer.myomer.helpers.SharedPreferenceHelper;
-import com.myomer.myomer.webservice.TransparentProgressDialog;
+import com.myomer.myomer.util.helper.SharedPreferenceHelper;
+import com.myomer.myomer.util.oldProjectFiles.webservice.TransparentProgressDialog;
 
 import org.apache.commons.lang3.StringUtils;
 

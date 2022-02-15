@@ -5,8 +5,8 @@ import android.content.Context;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.myomer.myomer.R;
-import com.myomer.myomer.utilty.Constants;
-import com.myomer.myomer.utilty.Utilty;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
 
 import java.util.Map;
 

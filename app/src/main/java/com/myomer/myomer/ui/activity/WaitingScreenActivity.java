@@ -13,11 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.myomer.myomer.R;
-import com.myomer.myomer.helpers.SharedPreferenceHelper;
-import com.myomer.myomer.models.MyOmerPeriod;
-import com.myomer.myomer.realm.RealmController;
-import com.myomer.myomer.utilty.Constants;
-import com.myomer.myomer.utilty.Utilty;
+import com.myomer.myomer.data.local.models.MyOmerPeriod;
+import com.myomer.myomer.util.helper.SharedPreferenceHelper;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
+import com.myomer.myomer.util.realm.RealmController;
 
 import org.joda.time.Days;
 import org.joda.time.LocalDate;

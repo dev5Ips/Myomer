@@ -3,7 +3,7 @@ package com.myomer.myomer.util.oldProjectFiles.webservice;
 import android.content.Context;
 
 import com.google.gson.JsonObject;
-import com.myomer.myomer.utilty.Constants;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
 
 /**
  * Created by Sagar on 05/04/2018.

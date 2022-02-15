@@ -12,11 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.myomer.myomer.R;
-import com.myomer.myomer.activities.HomeActivity;
-import com.myomer.myomer.adapters.WeekAdapter;
-import com.myomer.myomer.event_bus.Events;
-import com.myomer.myomer.event_bus.GlobalBus;
-import com.myomer.myomer.utilty.Constants;
+import com.myomer.myomer.data.local.event_bus.Events;
+import com.myomer.myomer.data.local.event_bus.GlobalBus;
+import com.myomer.myomer.ui.activity.HomeActivity;
+import com.myomer.myomer.ui.adapters.WeekAdapter;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

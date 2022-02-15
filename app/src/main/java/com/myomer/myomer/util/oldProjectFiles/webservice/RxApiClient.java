@@ -2,7 +2,7 @@ package com.myomer.myomer.util.oldProjectFiles.webservice;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.myomer.myomer.utilty.Constants;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
 
 import java.util.concurrent.TimeUnit;
 

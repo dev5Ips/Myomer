@@ -9,9 +9,9 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myomer.myomer.R;
-import com.myomer.myomer.helpers.SharedPreferenceHelper;
-import com.myomer.myomer.utilty.Constants;
-import com.myomer.myomer.utilty.Utilty;
+import com.myomer.myomer.util.helper.SharedPreferenceHelper;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
 
 public class SplachScreenActivity extends AppCompatActivity {
 
@@ -38,10 +38,10 @@ public class SplachScreenActivity extends AppCompatActivity {
                 // Start your app main activity
                 Utilty.resetNotifications(SplachScreenActivity.this);
                 if (SharedPreferenceHelper.getSharedPreferenceBoolean(SplachScreenActivity.this, Constants.FIRSTIME_USER, true)) {
-                    Intent i = new Intent(SplachScreenActivity.this, com.myomer.myomer.activities.UserFormActivity.class);
+                    Intent i = new Intent(SplachScreenActivity.this, UserFormActivity.class);
                     startActivity(i);
                 } else {
-                    Intent i = new Intent(SplachScreenActivity.this, com.myomer.myomer.activities.WaitingScreenActivity.class);
+                    Intent i = new Intent(SplachScreenActivity.this, WaitingScreenActivity.class);
                     startActivity(i);
                 }
                 // close this activity

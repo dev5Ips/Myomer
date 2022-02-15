@@ -26,12 +26,12 @@ import androidx.appcompat.widget.Toolbar;
 import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
 import com.luckycatlabs.sunrisesunset.dto.Location;
 import com.myomer.myomer.R;
-import com.myomer.myomer.background.AlarmReceiver;
-import com.myomer.myomer.helpers.SharedPreferenceHelper;
-import com.myomer.myomer.utilty.Constants;
-import com.myomer.myomer.utilty.Utilty;
-import com.myomer.myomer.utilty.gota.Gota;
-import com.myomer.myomer.utilty.gota.GotaResponse;
+import com.myomer.myomer.receiver.AlarmReceiver;
+import com.myomer.myomer.util.helper.SharedPreferenceHelper;
+import com.myomer.myomer.util.oldProjectFiles.Constants;
+import com.myomer.myomer.util.oldProjectFiles.Utilty;
+import com.myomer.myomer.util.oldProjectFiles.gota.Gota;
+import com.myomer.myomer.util.oldProjectFiles.gota.GotaResponse;
 
 import org.ankit.gpslibrary.MyTracker;
 
@@ -73,7 +73,7 @@ public class SettingsActivity extends AppCompatActivity implements Gota.OnReques
         /**
          * General notification switch to enable or disable all notifications
          */
-        if(SharedPreferenceHelper.getSharedPreferenceBoolean(this,Constants.ENABLE_NOTIFICATIONS,true)){
+        if(SharedPreferenceHelper.getSharedPreferenceBoolean(this, Constants.ENABLE_NOTIFICATIONS,true)){
             switchNotifications.setChecked(true);
         }else {
             switchNotifications.setChecked(false);
